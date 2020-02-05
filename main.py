@@ -14,6 +14,17 @@ def save():
         f.write(t)
 
 
+def select_font_arial():
+    global text
+    text.config(font='Arial')
+
+
+def select_font_monospace():
+    global text
+    # text.config(font='Mono')
+    text.config(font='JetBrainsMono')
+
+
 def start():
     print('start()')
     global text
@@ -22,6 +33,14 @@ def start():
     text.grid()
     button = Button(root, text='Save', command=save)
     button.grid()
+    font_view = Menubutton(root, text='Font')
+    font_view.grid()
+    font_view.menu = Menu(font_view, tearoff=0)
+    font_view['menu'] = font_view.menu
+    arial = IntVar()
+    monospace = IntVar()
+    font_view.menu.add_checkbutton(label='Arial', variable=arial, command=select_font_arial())
+    font_view.menu.add_checkbutton(label='Monospace', variable=monospace, command=select_font_monospace())
     root.mainloop()
 
 
