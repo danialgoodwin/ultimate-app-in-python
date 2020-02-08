@@ -36,7 +36,7 @@ class TextEditor:
         self.menubar.add_cascade(label='Help', menu=self.helpmenu)
 
         scroll_y = Scrollbar(self.root, orient=VERTICAL)
-        self.text_input_view = Text(self.root, yscrollcommand = scroll_y.set, state='normal', relief=GROOVE)
+        self.text_input_view = Text(self.root, yscrollcommand=scroll_y.set, state='normal', relief=GROOVE)
         scroll_y.pack(side=RIGHT, fill=Y)
         scroll_y.config(command=self.text_input_view.yview)
         self.text_input_view.pack(fill=BOTH, expand=1)
@@ -112,11 +112,11 @@ class TextEditor:
         messagebox.showinfo('About Ultimate App', 'A simple everything app.\nCreate using Python.')
 
     def shortcuts(self):
-        self.text_input_view.bind("<Control-n>",self.newfile)
-        self.text_input_view.bind("<Control-o>",self.openfile)
-        self.text_input_view.bind("<Control-s>",self.savefile)
-        self.text_input_view.bind("<Control-a>",self.saveasfile)
-        self.text_input_view.bind("<Control-q>",self.quit)
+        self.text_input_view.bind("<Control-n>", self.newfile)
+        self.text_input_view.bind("<Control-o>", self.openfile)
+        self.text_input_view.bind("<Control-s>", self.savefile)
+        self.text_input_view.bind("<Control-a>", self.saveasfile)
+        self.text_input_view.bind("<Control-q>", self.quit)
         # self.text_input_view.bind("<Control-x>",self.cut)
         # self.text_input_view.bind("<Control-c>",self.copy)
         # self.text_input_view.bind("<Control-v>",self.paste)
