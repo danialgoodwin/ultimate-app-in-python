@@ -111,10 +111,10 @@ def save_as(event=None):
     input_file_name = tkinter.filedialog.asksaveasfilename(defaultextension=".txt",
     filetypes=[("All Files", "*.*"), ("Text Documents", "*.txt")])
     if input_file_name:
-    global file_name
-    file_name = input_file_name
-    write_to_file(file_name)
-    root.title('{} - {}'.format(os.path.basename(file_name), PROGRAM_NAME))
+        global file_name
+        file_name = input_file_name
+        write_to_file(file_name)
+        root.title('{} - {}'.format(os.path.basename(file_name), PROGRAM_NAME))
     return "break"
 
 def save(event=None):
@@ -134,8 +134,7 @@ def find_text(event=None):
     search_toplevel.title('Find Text')
     search_toplevel.transient(root)
     Label(search_toplevel, text="Find All:").grid(row=0, column=0, sticky='e')
-    search_entry_widget = Entry(
-    search_toplevel, width=25)
+    search_entry_widget = Entry(search_toplevel, width=25)
     search_entry_widget.grid(row=0, column=1, padx=2, pady=2, sticky='we')
     search_entry_widget.focus_set()
     ignore_case_value = IntVar()
@@ -161,10 +160,9 @@ def search_output(needle, if_ignore_case, content_text, search_toplevel, search_
     content_text.tag_remove('match', '1.0', END)
     matches_found = 0
     if needle:
-    start_pos = '1.0'
+        start_pos = '1.0'
     while True:
-        start_pos = content_text.search(needle, start_pos,
-        nocase=if_ignore_case, stopindex=END)
+        start_pos = content_text.search(needle, start_pos, nocase=if_ignore_case, stopindex=END)
         if not start_pos:
             break
         end_pos = '{}+{}c'.format(start_pos, len(needle))
